@@ -1,5 +1,48 @@
+.label.glyphicon { 
+    margin-right:5px; 
+}
+
 body {
   background: #F5F8FA;
 }
 
-.label,.glyphicon { margin-right:5px; }
+a:hover {
+  color: #F7690A;
+}
+
+.card {
+  border-radius: 3px;
+  border: 1px solid #E1E8ED;
+  background: #FFF;
+}
+
+.card-bottom {
+  margin: 10px 0px 10px 0px;
+}
+
+.card-paragraph {
+  margin-left: 6px;
+  margin-right: 6px;
+}
+
+.bottom-border {
+  border-top: 1px solid;
+  border-color: #E1E8ED;
+  margin-bottom: 30px;
+}
+
+.location-a {
+  color: #8899A6;
+}
+
+/* custom! */
+.progress {
+    position: relative;
+}
+
+.progress span {
+    position: absolute;
+    display: block;
+    width: 100%;
+    color: black;
+ }
