@@ -11,6 +11,12 @@ var coordinators = require('./routes/coordinator');
 
 var app = express();
 
+var server = require('http').Server(app);
+
+var io = require('socket.io')(server);
+
+var posts = require('./realtime/posts')(io);
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -59,4 +65,4 @@ app.use(function(err, req, res, next) {
 });
 
 
-app.listen(8080);
+server.listen(8080);
