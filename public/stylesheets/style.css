@@ -3,11 +3,19 @@
 }
 
 body {
+
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background: #F5F8FA;
 }
 
+<<<<<<< HEAD
 a:hover {
   color: #F7690A;
+=======
+a {
+  color: #00B7FF;
+>>>>>>> efd97efc9e5a9714fb7f52ba59c7b48ed6bad199
 }
 
 .card {
@@ -16,6 +24,7 @@ a:hover {
   background: #FFF;
 }
 
+<<<<<<< HEAD
 .card-bottom {
   margin: 10px 0px 10px 0px;
 }
@@ -46,3 +55,16 @@ a:hover {
     width: 100%;
     color: black;
  }
+=======
+
+.content {
+    margin-left: auto;
+    margin-right: auto;
+    table-layout: fixed;
+    border-collapse: collapse;
+    position: relative;
+    z-index: -1;
+}
+
+.label,.glyphicon { margin-right:5px; }
+>>>>>>> efd97efc9e5a9714fb7f52ba59c7b48ed6bad199
