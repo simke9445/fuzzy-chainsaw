@@ -19,6 +19,8 @@ var server = require('http').Server(app);
 
 var io = require('socket.io')(server);
 
+var db = require('./lib/db');
+
 app.locals.config = require('./config');
 
 r.connect(app.locals.config.rethinkdb, function(err, connection) {
@@ -41,9 +43,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(db.createConnection);
+
 app.use('/', volunteers);
 app.use('/coordinator', coordinators);
 app.use('/admin', admins);
+
+app.use(db.closeConnection);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
