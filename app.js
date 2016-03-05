@@ -26,9 +26,7 @@ app.locals.config = require('./config');
 r.connect(app.locals.config.rethinkdb, function(err, connection) {
     assert(err == null, err);
 
-    app.locals.rdbConn = connection;
-
-    require('./realtime/volunteers')(io, r.db(app.locals.config.rethinkdb.db));
+    require('./realtime/volunteers')(io, r.db(app.locals.config.rethinkdb.db), connection);
 });
 
 // view engine setup
