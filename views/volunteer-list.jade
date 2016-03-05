@@ -12,24 +12,103 @@ block content
               .modal-body
                 include volunteer-form
 
-        #blank
-            .row.card.col-md-6.col-md-offset-3
-                div
-                    span.emergency.glyphicon.glyphicon-exclamation-sign.pull-left.card-paragraph(aria-hidden="true")
-                    div
-                        h3
-                            a(class="text-center" href="http://www.google.com") hello
-                        span.location-a Pre 12 minuta
-                        a.btn.btn-lg.btn-success.pull-right(href='#', data-toggle='modal', data-target='#basicModal') Prijavi se! 
-                       
-                div
-                    p.card-paragraph Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, molestias. Odio consectetur quia nihil, fugit. Asperiores minima ducimus, consectetur eveniet, deserunt officia perferendis harum commodi, culpa aut iusto sit, a.
-                .card-bottom.card-paragraph
-                    .progress
-                        .progress-bar(role="progressbar" aria-valuenow="60", aria-valuemin="0", aria-valuemax="100", style="width: 60%;")
-                            span 12/20
-                .bottom-border.card-bottom
-                    div
-                        span.card-paragraph.pull-left
-                            a.location-a(href="zzzz") Nova Varos
-                        span.card-paragraph.pull-right ikonice
+    .container
+        .row-fluid(style='padding-top: 2.5em;')
+            .col-lg-8
+                .flip
+                    .card
+                        .face.front
+                            .panel.panel-default
+                                .panel-heading(style='text-align: center;')
+                                    h4 Gradnja nasipa na Dunavu
+                                    span.fa.fa-phone(style='font-size:2em; padding-right: 0.25em;padding-left:0.25em;')
+                                    span.fa.fa-check(style='font-size:2em; padding-right: 0.25em;padding-left:0.25em;')
+                                    span.fa.fa-map-marker(style='font-size:2em; padding-right: 0.25em;padding-left:0.25em;')
+                                .panel-body(style='height: 25em;')
+                                    .row-fluid(style='height: 100%;')
+                                        .col-lg-6(style='height: 100%;')
+                                            p <b>Ime koordinatora:</b>
+                                            p Djordje Simovic
+                                            p <b>Broj telefona:</b>
+                                            p +381 64 426 2365
+                                            p <b>Opis:</b>
+                                            p Potrebni snazni muskarci za istovar dzakova sa peskom i rasporedjivanje istih na obale Dunava.
+
+                                        .col-lg-6(style='height: 100%; padding-right: 0;')
+                                            .row-fluid(style='text-align: center; padding-bottom: 3em;')
+                                                span.fa.fa-anchor(style='font-size:2em; padding-right: 0.25em;padding-left:0.25em;')
+                                                span.fa.fa-bus(style='font-size:2em; padding-right: 0.25em;padding-left:0.25em;')
+                                                span.fa.fa-compass(style='font-size:2em; padding-right: 0.25em;padding-left:0.25em;')
+                                            .row-fluid
+                                                .col-lg-6(style='padding-right: 0; padding-left: 0;')
+                                                    p(style='font-size: 1.2em; text-align: center;') Ocekivano vreme dolaska: 15 min
+                                                    p(style='height: 80%; font-weight: bold; font-size: 4em; text-align: center;') 15
+                                                .col-lg-6(style='padding-right: 0; padding-left: 0;')
+                                                    p(style='font-size: 1.2em; text-align: center;') Ukupan broj potrebnih ljudi
+                                                    p(style='height: 80%; font-weight: bold; font-size: 4em; text-align: center;') 150
+                                            .row-fluid
+                                            .row(style='padding-top: 35%; padding-left: 20%;')
+                                                input.slider(type='text', name='somename', data-provide='slider', data-slider-ticks='[1, 2, 3, 4]', data-slider-ticks-labels='["mirno", "oprez", "hitno", "kriticno"]', data-slider-min='1', data-slider-max='4', data-slider-step='1', data-slider-value='3', data-slider-tooltip='hide')
+                        .face.back
+                            .panel.panel-default
+                                .panel-heading(style='text-align: center;')
+                                    h4 Lokacija
+                                    .a.fa.fa-undo
+                                #map-container.map-content
+                                    script(src='http://maps.google.com/maps/api/js?v=3.exp')
+                                    script(src='/javascripts/map.js')
+        .col-lg-4
+            .panel.panel-default.card
+                .panel-heading(style='height: 6.2em; text-align: center;')
+                    h4(style='margin-top: 1.25em;') Upravo dolaze
+                .panel-body(style='height: 25em;')
+    .container
+        .row-fluid(style='padding-top: 2.5em;')
+            .col-lg-8
+                .flip
+                    .card
+                        .face.front
+                            .panel.panel-default
+                                .panel-heading(style='text-align: center;')
+                                    h4 Potrebna pomoc u areni
+                                    span.fa.fa-phone(style='font-size:2em; padding-right: 0.25em;padding-left:0.25em;')
+                                    span.fa.fa-check(style='font-size:2em; padding-right: 0.25em;padding-left:0.25em;')
+                                    span.fa.fa-map-marker(style='font-size:2em; padding-right: 0.25em;padding-left:0.25em;')
+                                .panel-body(style='height: 25em;')
+                                    .row-fluid(style='height: 100%;')
+                                        .col-lg-6(style='height: 100%;')
+                                            p <b>Ime koordinatora:</b>
+                                            p Nikola Miljkovic
+                                            p <b>Broj telefona:</b>
+                                            p +381 64 252 3253
+                                            p <b>Opis:</b>
+                                            p Potrebna pomoc pri raspakivanju i rasporedjivanju raspolozivih sredstava.
+
+                                        .col-lg-6(style='height: 100%; padding-right: 0;')
+                                            .row-fluid(style='text-align: center; padding-bottom: 3em;')
+                                                span.fa.fa-shopping-basket(style='font-size:2em; padding-right: 0.25em;padding-left:0.25em;')
+                                                span.fa.fa-group(style='font-size:2em; padding-right: 0.25em;padding-left:0.25em;')
+                                                span.fa.fa-hotel(style='font-size:2em; padding-right: 0.25em;padding-left:0.25em;')
+                                            .row-fluid
+                                                .col-lg-6(style='padding-right: 0; padding-left: 0;')
+                                                    p(style='font-size: 1.2em; text-align: center;') Ocekivano vreme dolaska: 15 min
+                                                    p(style='height: 80%; font-weight: bold; font-size: 4em; text-align: center;') 17
+                                                .col-lg-6(style='padding-right: 0; padding-left: 0;')
+                                                    p(style='font-size: 1.2em; text-align: center;') Ukupan broj potrebnih ljudi
+                                                    p(style='height: 80%; font-weight: bold; font-size: 4em; text-align: center;') 200
+                                            .row-fluid
+                                            .row(style='padding-top: 35%; padding-left: 20%;')
+                                                input.slider(type='text', name='somename', data-provide='slider', data-slider-ticks='[1, 2, 3, 4]', data-slider-ticks-labels='["mirno", "oprez", "hitno", "kriticno"]', data-slider-min='1', data-slider-max='4', data-slider-step='1', data-slider-value='3', data-slider-tooltip='hide')
+                        .face.back
+                            .panel.panel-default
+                                .panel-heading(style='text-align: center;')
+                                    h4 Lokacija
+                                    .a.fa.fa-undo
+                                //#map-container.map-content
+                                //    script(src='http://maps.google.com/maps/api/js?v=3.exp')
+                                //    script(src='/javascripts/map.js')
+        .col-lg-4
+            .panel.panel-default.card
+                .panel-heading(style='height: 6.2em; text-align: center;')
+                    h4(style='margin-top: 1.25em;') Upravo dolaze
+                .panel-body(style='height: 25em;')
