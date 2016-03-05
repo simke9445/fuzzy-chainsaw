@@ -1,15 +1,30 @@
 extends layout
 
 block content
-    div.container
+    .container
+
+         #basicModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='basicModal', aria-hidden='true', data-backdrop="false")
+          .modal-dialog
+            .modal-content(style='background-color: #FFF;')
+              .modal-header
+                button.close(type='button', data-dismiss='modal', aria-hidden='true') &times;
+                h4#myModalLabel.modal-title Prijava za volontiranje u vanrednim situacijama
+              .modal-body
+                include volunteer-form
+              .modal-footer
+                button.btn.btn-default(type='button', data-dismiss='modal') Close
+                button.btn.btn-primary(type='button') Save changes
+
         #blank
-            div.row.card.col-md-6.col-md-offset-3
+            .row.card.col-md-6.col-md-offset-3
                 div
                     span.emergency.glyphicon.glyphicon-exclamation-sign.pull-left.card-paragraph(aria-hidden="true")
                     div
                         h3
                             a(class="text-center" href="http://www.google.com") hello
                         span.location-a Pre 12 minuta
+                        a.btn.btn-lg.btn-success.pull-right(href='#', data-toggle='modal', data-target='#basicModal') Prijavi se!
+                       
                 div
                     p.card-paragraph Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, molestias. Odio consectetur quia nihil, fugit. Asperiores minima ducimus, consectetur eveniet, deserunt officia perferendis harum commodi, culpa aut iusto sit, a.
                 .card-bottom.card-paragraph

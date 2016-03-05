@@ -19,5 +19,22 @@ module.exports = function(io, db, conn) {
                 });
             });
         });
+
+        socket.on('volunteer-detail-init', function(key) {
+            db.table('event').get(key).run(conn, function(err, cursor) {
+                assert(err == null, err);
+                cursor.next(function(err, data) {
+                    socket.emit('volunteer-detail-init', data);
+
+                    db.table('event').get(key).changes().run(conn, function(err, cursor) {
+                        cursor.each(function(err, row) {
+                            assert(err == null, err);
+
+                            socket.emit('volunteer-detail-update', row);
+                        });
+                    });
+                });
+            });
+        });
     });
 }

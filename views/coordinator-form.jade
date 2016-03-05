@@ -1,0 +1,74 @@
+.form-group
+    .row
+        .col-lg-5.col-lg-push-1
+            .row
+                p Naziv:
+                textarea(style='width: 50%; height: 2em; resize: none;')
+            .row
+                p Opis:
+                textarea(style='width: 50%; height: 2em;  resize: none;')
+        .col-lg-5
+            h4 Zahtevane sposobnosti
+            .row
+                .col-lg-6
+                    .checkbox.disabled
+                        label
+                            input(type='checkbox', value='')
+                            | Fizicka snaga
+                    .checkbox.disabled
+                        label
+                            input(type='checkbox', value='')
+                            | Plivac
+                    .checkbox.disabled
+                        label
+                            input(type='checkbox', value='')
+                            | Staratelj
+                .col-lg-6
+                    .checkbox.disabled
+                        label
+                            input(type='checkbox', value='')
+                            | Vozac
+                    .checkbox.disabled
+                        label
+                            input(type='checkbox', value='')
+                            | Agilan
+        .col-lg-1
+    .row
+        .col-lg-5
+            h4 Jezici
+            .row
+                .col-lg-6
+                    .checkbox.disabled
+                        label
+                            input(type='checkbox', value='')
+                            | Srpski
+                    .checkbox.disabled
+                        label
+                            input(type='checkbox', value='')
+                            | Engleski
+                    .checkbox.disabled
+                        label
+                            input(type='checkbox', value='')
+                            | Francuski
+                .col-lg-6
+                    .checkbox.disabled
+                        label
+                            input(type='checkbox', value='')
+                            | Arapski
+                    .checkbox.disabled
+                        label
+                            input(type='checkbox', value='')
+                            | Nemacki
+                    .checkbox.disabled
+                        label
+                            input(type='checkbox', value='')
+                            | Italijanski
+        .col-lg-1
+    .row
+        input.slider(type='text', name='somename', data-provide='slider', data-slider-ticks='[1, 2, 3, 4]', data-slider-ticks-labels='["arising", "rekindling", "urgent", "critical"]', data-slider-min='1', data-slider-max='4', data-slider-step='1', data-slider-value='3', data-slider-tooltip='hide')
+    .row
+        p Potrebno ljudi:
+        textarea(style='width: 50%; height: 2em;  resize: none;')
+    #map-container.map-content
+        script(src='http://maps.google.com/maps/api/js?v=3.exp')
+        script(src='/javascripts/map.js')
