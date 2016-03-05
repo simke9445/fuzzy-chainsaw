@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var assert = require('assert');
+var r = require('rethinkdb');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
