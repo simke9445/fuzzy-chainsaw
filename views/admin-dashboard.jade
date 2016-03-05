@@ -6,37 +6,11 @@ block content
             // Brand and toggle get grouped for better mobile display
             .navbar-header
                 .navbar-brand(href='#') Coordinator
-    .row
-        .col-sm-4.col-md-3.sidebar
-            .mini-submenu
-                span.icon-bar
-                span.icon-bar
-                span.icon-bar
-            .list-group
-                span.list-group-item.active(href='#')
-                    | Submenu
-                    span#slide-submenu.pull-right
-                        i.fa.fa-times
-                a.list-group-item(href='#')
-                    i.fa.fa-comment-o
-                    |  Lorem ipsum
-                a.list-group-item(href='#')
-                    i.fa.fa-search
-                    |  Lorem ipsum
-                a.list-group-item(href='#')
-                    i.fa.fa-user
-                    |  Lorem ipsum
-                a.list-group-item(href='#')
-                    i.fa.fa-folder-open-o
-                    |  Lorem ipsum
-                    span.badge 14
-                a.list-group-item(href='#')
-                    i.fa.fa-bar-chart-o
-                    |  Lorem ipsumr
-                    span.badge 14
-                a.list-group-item(href='#')
-                    i.fa.fa-envelope
-                    |  Lorem ipsum
+            ul.nav.navbar-nav
+                li
+                    a Volontiranje
+                li
+                    a Promena hitnosti
     .container
         .row-fluid(style='padding-top: 2.5em;')
             .col-lg-8
@@ -45,13 +19,18 @@ block content
                         .face.front
                             .panel.panel-default
                                 .panel-heading(style='text-align: center;')
-                                    h4 BEST EVENT EVER
+                                    h4 Gradnja nasipa na Dunavu
                                     span.fa.fa-check(style='font-size:2em; padding-right: 0.25em;padding-left:0.25em;')
                                     span.fa.fa-times(style='font-size:2em; padding-right: 0.25em;padding-left:0.25em;')
                                 .panel-body(style='height: 25em;')
                                     .row-fluid(style='height: 100%;')
                                         .col-lg-6(style='height: 100%;')
-                                            text(style='width: 100%; height: 100%; border-size: 1em; resize: none;') It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+                                            p <b>Ime koordinatora:</b>
+                                            p Djordje Simovic
+                                            p <b>Broj telefona:</b>
+                                            p +381 64 426 2365
+                                            p <b>Opis:</b>
+                                            p Potrebni snazni muskarci za istovar dzakova sa peskom i rasporedjivanje istih na obale Dunava.
 
                                         .col-lg-6(style='height: 100%; padding-right: 0;')
                                             .row-fluid(style='text-align: center; padding-bottom: 3em;')
@@ -61,14 +40,14 @@ block content
                                                 span.fa.fa-compass(style='font-size:2em; padding-right: 0.25em;padding-left:0.25em;')
                                             .row-fluid
                                                 .col-lg-6(style='padding-right: 0; padding-left: 0;')
-                                                    p(style='font-size: 1.2em; text-align: center;') Expected Time of Arrival: 15 min
+                                                    p(style='font-size: 1.2em; text-align: center;') Ocekivano vreme dolaska: 15 min
                                                     p(style='height: 80%; font-weight: bold; font-size: 4em; text-align: center;') 15
                                                 .col-lg-6(style='padding-right: 0; padding-left: 0;')
-                                                    p(style='font-size: 1.2em; text-align: center;') Total expected manpower
+                                                    p(style='font-size: 1.2em; text-align: center;') Ukupan broj potrebnih ljudi
                                                     p(style='height: 80%; font-weight: bold; font-size: 4em; text-align: center;') 150
                                             .row-fluid
                                             .row(style='padding-top: 35%; padding-left: 20%;')
-                                                input.slider(type='text', name='somename', data-provide='slider', data-slider-ticks='[1, 2, 3, 4]', data-slider-ticks-labels='["arising", "rekindling", "urgent", "critical"]', data-slider-min='1', data-slider-max='4', data-slider-step='1', data-slider-value='3', data-slider-tooltip='hide')
+                                                input.slider(type='text', name='somename', data-provide='slider', data-slider-ticks='[1, 2, 3, 4]', data-slider-ticks-labels='["mirno", "oprez", "hitno", "kriticno"]', data-slider-min='1', data-slider-max='4', data-slider-step='1', data-slider-value='3', data-slider-tooltip='hide')
                         .face.back
                             .panel.panel-default
                                 .panel-heading(style='text-align: center;')
