@@ -9,9 +9,9 @@ var config = require('./config');
 
 var assert = require('assert');
 
-var volunteer_list = require('./routes/volunteer-list');
-var coordinator_dashboard = require('./routes/coordinator-dashboard');
-var admin_dashboard = require('./routes/admin-dashboard');
+var volunteers = require('./routes/volunteers');
+var coordinators = require('./routes/coordinators');
+var admins = require('./routes/admins');
 
 var app = express();
 
@@ -41,9 +41,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', volunteer_list);
-app.use('/users', users);
+app.use('/', volunteers);
 app.use('/coordinator', coordinators);
+app.use('/admin', admins);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
