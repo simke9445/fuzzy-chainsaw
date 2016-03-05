@@ -14,3 +14,10 @@ var value = mySlider.slider('getValue');
     mySlider
         .slider('setValue', 5)
         .slider('setValue', 7);
+
+// card flip
+
+$(".fa-automobile, .fa-undo").click(function(){
+    $(this).closest(".card").toggleClass("flipped");
+    return false;
+});
