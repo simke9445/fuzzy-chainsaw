@@ -5,10 +5,16 @@ import io from 'socket.io-client';
 
 var socket = io();
 
-socket.on('post_action', function(row) { 
-    console.log(row);
-    ReactDOM.render(
-        <CardList></CardList>,
-        document.getElementById('blank')
-    );
+socket.on('volunteer-list-init', function(data) {
+    console.log(data);
+    
+    socket.on('volunteer-list-update', function(row) { 
+        console.log(row);
+        ReactDOM.render(
+            <CardList></CardList>,
+            document.getElementById('blank')
+        );
+    });
 });
+
+socket.emit('volunteer-list-init');

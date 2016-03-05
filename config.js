@@ -1,6 +1,6 @@
 module.exports = {
     rethinkdb: {
-        host: '192.168.99.100',
+        host: 'localhost',
         port: 28015,
         authKey: '',
         db: 'fuzzy_chainsaw',

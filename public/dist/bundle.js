@@ -73,10 +73,16 @@
 
 	var socket = (0, _socket2.default)();
 
-	socket.on('post_action', function (row) {
-	    console.log(row);
-	    _reactDom2.default.render(_react2.default.createElement(_cardList2.default, null), document.getElementById('blank'));
+	socket.on('volunteer-list-init', function (data) {
+	    console.log(data);
+
+	    socket.on('volunteer-list-update', function (row) {
+	        console.log(row);
+	        _reactDom2.default.render(_react2.default.createElement(_cardList2.default, null), document.getElementById('blank'));
+	    });
 	});
+
+	socket.emit('volunteer-list-init');
 
 /***/ },
 /* 2 */

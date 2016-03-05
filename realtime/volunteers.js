@@ -7,7 +7,7 @@ module.exports = function(io, db) {
                 assert(err == null, err);
                 var data = [];
                 cursor.toArray(function(err, data) {
-                    socket.emit('volunteer-list-init', data);
+                    socket.emit('volunteer-list-init', {raw: 'ccc'});//data);
 
                     db.table('event').changes().run(req.rdbConn, function(err, cursor) {
                         cursor.each(function(err, row) {
