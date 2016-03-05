@@ -3,16 +3,11 @@ var router = express.Router();
 var assert = require('assert');
 var r = require('rethinkdb');
 var config = require('../config');
+var io = require('socket.io');
 
-/* GET users listing. */
+/* GET volunteer listing. */
 router.get('/', function(req, res, next) {
-    r.db(config.rethinkdb.db).table('event').run(req.rdbConn, function(err, cursor) {
-        assert(err == null, err);
-        var data = [];
-        cursor.toArray(function(err, data) {
-            res.render('volunteer-list', { title: 'Express', posts: data });
-        });
-    });
+    res.render('volunteer-list');
 });
 
 router.post('/signup', function(req, res, next) {
