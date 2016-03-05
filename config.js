@@ -3,8 +3,7 @@ module.exports = {
         host: 'localhost',
         port: 28015,
         authKey: '',
-        db: '172.17.0.2',
-        db_name: 'fuzzy_chainsaw'
+        db: 'fuzzy_chainsaw',
     },
     express: {
         port: 8080,
