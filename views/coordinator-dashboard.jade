@@ -6,6 +6,17 @@ block content
 				// Brand and toggle get grouped for better mobile display
 				.navbar-header
 					.navbar-brand(href='#') Coordinator
+	#basicModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='basicModal', aria-hidden='true', data-backdrop="false")
+		.modal-dialog
+			.modal-content(style='background-color: #FFF;')
+				.modal-header
+					button.close(type='button', data-dismiss='modal', aria-hidden='true') &times;
+					h4#myModalLabel.modal-title Modal title
+				.modal-body
+					include coordinator-form
+				.modal-footer
+					button.btn.btn-default(type='button', data-dismiss='modal') Close
+					button.btn.btn-primary(type='button') Save changes
 	.container
 			.row-fluid(style='padding-top: 2.5em;')
 					.col-lg-8
