@@ -11,9 +11,26 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/profile', function(req, res, next) {
-    console.log(req.body);
-
     res.render('volunteer-detail');
+    var handicaps = Object.keys(req.body).filter(function(key) {
+        return key.startsWith("handicap-");
+    }).map(function(key) {
+        return key.slice(9);
+    });
+
+    var languages = Object.keys(req.body).filter(function(key) {
+        return key.startsWith("languages-");
+    }).map(function(key) {
+        return key.slice(10);
+    });
+
+    var skill = Object.keys(req.body).filter(function(key) {
+        return key.startsWith("skill-");
+    }).map(function(key) {
+        return key.slice(6);
+    });
+
+
 });
 
 module.exports = router;
