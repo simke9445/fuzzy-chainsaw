@@ -74,11 +74,29 @@
 	var socket = (0, _socket2.default)();
 
 	socket.on('volunteer-list-init', function (data) {
-	    console.log(data);
+	    var store = data;
+
+	    _reactDom2.default.render(_react2.default.createElement(_cardList2.default, { cards: store }), document.getElementById('blank'));
 
 	    socket.on('volunteer-list-update', function (row) {
-	        console.log(row);
-	        _reactDom2.default.render(_react2.default.createElement(_cardList2.default, null), document.getElementById('blank'));
+
+	        if (row.new_val === null) {
+	            store = store.filter(function (x) {
+	                return x.id != row.old_val.id;
+	            });
+	            console.log("pozzasdasda");
+	        } else if (row.old_val === null) {
+	            store.push(row.new_val);
+	            console.log("pozz");
+	        } else {
+	            var objectIndex = store.findIndex(function (x) {
+	                return x.id == row.old_val.id;
+	            });
+	            store[objectIndex] = row.new_val;
+	        }
+
+	        console.log(store);
+	        _reactDom2.default.render(_react2.default.createElement(_cardList2.default, { cards: store }), document.getElementById('blank'));
 	    });
 	});
 
@@ -19725,13 +19743,11 @@
 	    _createClass(CardList, [{
 	        key: 'render',
 	        value: function render() {
-	            var num = [1, 2, 3, 4];
-
 	            return _react2.default.createElement(
 	                'div',
 	                null,
-	                num.map(function (x) {
-	                    return _react2.default.createElement(_card2.default, null);
+	                this.props.cards.map(function (x) {
+	                    return _react2.default.createElement(_card2.default, { data: x });
 	                })
 	            );
 	        }
@@ -19794,14 +19810,14 @@
 	    _createClass(Card, [{
 	        key: 'render',
 	        value: function render() {
-	            var lorem = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo facilis soluta corporis ut amet voluptates, possimus praesentium! Amet blanditiis delectus molestias expedita laborum veniam est, et, aspernatur, distinctio animi officia.";
+	            var data = this.props.data;
 	            return _react2.default.createElement(
 	                'div',
 	                { className: 'row card col-md-6 col-md-offset-3' },
-	                _react2.default.createElement(_header2.default, { title: "React" }),
-	                _react2.default.createElement(_description2.default, { content: lorem }),
-	                _react2.default.createElement(_progressBar2.default, { percent: 60 }),
-	                _react2.default.createElement(_footer2.default, { location: "Beli Dvor" })
+	                _react2.default.createElement(_header2.default, { title: data.title }),
+	                _react2.default.createElement(_description2.default, { content: data.note }),
+	                _react2.default.createElement(_progressBar2.default, { current: data.available_manpower, max: data.required_manpower }),
+	                _react2.default.createElement(_footer2.default, { location: data.location_name, skills: data.general_requirements })
 	            );
 	        }
 	    }]);
@@ -19936,7 +19952,7 @@
 /* 164 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
@@ -19966,27 +19982,25 @@
 	    }
 
 	    _createClass(ProgressBar, [{
-	        key: 'render',
+	        key: "render",
 	        value: function render() {
-	            var progressFullPercent = {
-	                width: this.props.percent + '%'
-	            };
-
+	            var progressFullPercent = 100 * (this.props.current / this.props.max);
+	            console.log(progressFullPercent);
 	            return _react2.default.createElement(
-	                'div',
-	                { className: 'card-bottom card-paragraph' },
+	                "div",
+	                { className: "card-bottom card-paragraph" },
 	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'progress' },
+	                    "div",
+	                    { className: "progress" },
 	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'progress-bar', role: 'progressbar',
-	                            'aria-valuenow': '60', 'aria-valuemin': '0', 'aria-valuemax': '100',
-	                            style: progressFullPercent },
+	                        "div",
+	                        { className: "progress-bar", role: "progressbar",
+	                            "aria-valuenow": "60", "aria-valuemin": "0", "aria-valuemax": "100",
+	                            style: { width: progressFullPercent + '%' } },
 	                        _react2.default.createElement(
-	                            'span',
+	                            "span",
 	                            null,
-	                            '12/20'
+	                            this.props.current + '/' + this.props.max
 	                        )
 	                    )
 	                )
@@ -20050,7 +20064,7 @@
 	                    _react2.default.createElement(
 	                        "span",
 	                        { className: "card-paragraph pull-right" },
-	                        "ikonice"
+	                        this.props.skills.join(', ')
 	                    )
 	                )
 	            );

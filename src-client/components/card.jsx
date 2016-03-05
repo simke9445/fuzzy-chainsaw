@@ -11,17 +11,16 @@ class Card extends React.Component {
     }
     
     render() {
-        let lorem = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo facilis soluta corporis ut amet voluptates, possimus praesentium! Amet blanditiis delectus molestias expedita laborum veniam est, et, aspernatur, distinctio animi officia.";
+        let data = this.props.data;
         return (
             <div className="row card col-md-6 col-md-offset-3">
-                <Header title={"React"} ></Header>
-                <Description content={lorem}></Description>
-                <ProgressBar percent={60}></ProgressBar>
-                <Footer location={"Beli Dvor"}></Footer>
+                <Header title={data.title}></Header>
+                <Description content={data.note}></Description>
+                <ProgressBar current={data.available_manpower} max={data.required_manpower}></ProgressBar>
+                <Footer location={data.location_name} skills={data.general_requirements}></Footer>
             </div>
         );
     }
-    
 }
 
 export default Card;

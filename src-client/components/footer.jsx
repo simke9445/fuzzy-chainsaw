@@ -12,7 +12,7 @@ class Footer extends React.Component {
                 <div>
                     <span className="card-paragraph pull-left"></span>
                         <a href="zzzz" className="location-a">{this.props.location}</a>
-                    <span className="card-paragraph pull-right">ikonice</span> 
+                    <span className="card-paragraph pull-right">{this.props.skills.join(', ')}</span> 
                 </div>
             </div>
         );

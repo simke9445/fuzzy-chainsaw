@@ -5,9 +5,9 @@ module.exports = function(io, db, conn) {
         socket.on('volunteer-list-init', function() {
             db.table('event').run(conn, function(err, cursor) {
                 assert(err == null, err);
-                var data = [];
+
                 cursor.toArray(function(err, data) {
-                    socket.emit('volunteer-list-init', {raw: 'ccc'});//data);
+                    socket.emit('volunteer-list-init', data);
 
                     db.table('event').changes().run(conn, function(err, cursor) {
                         cursor.each(function(err, row) {

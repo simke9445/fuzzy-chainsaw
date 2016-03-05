@@ -8,11 +8,9 @@ class CardList extends React.Component {
     }
     
     render() {
-        var num = [1, 2, 3, 4];
-        
         return (
             <div>
-                {num.map(x => <Card></Card>)}   
+                {this.props.cards.map(x => <Card data={x}></Card>)}   
             </div>
         );
     }
