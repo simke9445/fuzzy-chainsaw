@@ -10,8 +10,10 @@ router.get('/', function(req, res, next) {
     res.render('volunteer-list');
 });
 
-router.post('/signup', function(req, res, next) {
+router.post('/profile', function(req, res, next) {
+    console.log(req.body);
 
+    res.render('volunteer-detail');
 });
 
 module.exports = router;
