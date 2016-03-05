@@ -1,7 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import CardList from './components/card-list';
+import io from 'socket.io-client';
 
+var socket = io('192.168.0.14');
+
+socket.emit('zzzz');
 
 setTimeout(function() {
     ReactDOM.render(
