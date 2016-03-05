@@ -11,7 +11,7 @@ var assert = require('assert');
 
 var volunteer_list = require('./routes/volunteer-list');
 var coordinator_dashboard = require('./routes/coordinator-dashboard');
-var coordinators = require('./routes/coordinator');
+var admin_dashboard = require('./routes/admin-dashboard');
 
 var app = express();
 

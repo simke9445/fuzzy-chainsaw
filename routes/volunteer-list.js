@@ -3,7 +3,7 @@ var router = express.Router();
 var assert = require('assert');
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
+router.get(['/', '/volunteers/list/'], function(req, res, next) {
     r.db(app.locals.config.rethinkdb.db).table('event').run(app.locals.rdbConn, function(err, cursor) {
         assert(err == null, err);
         var data = [];
@@ -11,4 +11,4 @@ router.get('/', function(req, res, next) {
             res.render('volunteer-list', { title: 'Express', posts: data });
         });
     });
-}
+});
