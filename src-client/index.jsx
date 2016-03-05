@@ -5,11 +5,10 @@ import io from 'socket.io-client';
 
 var socket = io();
 
-socket.emit('zzzz');
-
-setTimeout(function() {
+socket.on('post_action', function(row) { 
+    console.log(row);
     ReactDOM.render(
         <CardList></CardList>,
         document.getElementById('blank')
-    )
-}, 5000);
+    );
+});

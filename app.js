@@ -26,7 +26,7 @@ r.connect(app.locals.config.rethinkdb, function(err, connection) {
 
     app.locals.rdbConn = connection;
 
-    require('./realtime/posts')(io, app);
+    require('./realtime/posts')(io, app, r.db(app.locals.config.rethinkdb.db_name));
 });
 
 // view engine setup
@@ -76,4 +76,4 @@ app.use(function(err, req, res, next) {
   });
 });
 
-server.listen(8080);
+server.listen(3000);

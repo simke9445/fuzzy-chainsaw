@@ -73,11 +73,10 @@
 
 	var socket = (0, _socket2.default)();
 
-	socket.emit('zzzz');
-
-	setTimeout(function () {
+	socket.on('post_action', function (row) {
+	    console.log(row);
 	    _reactDom2.default.render(_react2.default.createElement(_cardList2.default, null), document.getElementById('blank'));
-	}, 5000);
+	});
 
 /***/ },
 /* 2 */
