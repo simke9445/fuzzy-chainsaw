@@ -1,7 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import CardList from './components/card-list';
 
-ReactDOM.render(
-    <div> POZDRAV SVETE </div>,
-    document.getElementById('blank')
-)
+
+setTimeout(function() {
+    ReactDOM.render(
+        <CardList></CardList>,
+        document.getElementById('blank')
+    )
+}, 5000);
