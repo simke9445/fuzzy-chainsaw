@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
         assert(err == null, err);
         var data = [];
         cursor.toArray(function(err, data) {
-            res.render('index', { title: 'Express', posts: data });
+            res.render('volunteer-list', { title: 'Express', posts: data });
         });
     });
 }

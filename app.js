@@ -9,8 +9,8 @@ var config = require('./config');
 
 var assert = require('assert');
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
+var volunteer_list = require('./routes/volunteer-list');
+var coordinator_dashboard = require('./routes/coordinator-dashboard');
 var coordinators = require('./routes/coordinator');
 
 var app = express();
@@ -41,7 +41,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
+app.use('/', volunteer_list);
 app.use('/users', users);
 app.use('/coordinator', coordinators);
 
