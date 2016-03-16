@@ -26,5 +26,5 @@ var compiler = webpack({
 compiler.run(function(err, stats) {
   if (err != null) err;
   
-  console.log('Compilation complete!'); 
+  console.log('\nReact component compilation complete!\n'); 
 });

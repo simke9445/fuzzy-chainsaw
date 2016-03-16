@@ -20,7 +20,6 @@ var io = require('socket.io')(server);
 
 var db = require('./db');
 
-require('./component.bundler.js');
 app.locals.config = config;
 var dbHandle = r.db(config.rethinkdb.db);
 
