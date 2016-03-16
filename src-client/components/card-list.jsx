@@ -9,7 +9,7 @@ class CardList extends React.Component {
     
     render() {
         return (
-            <div>
+            <div className="container"> 
                 {this.props.cards.map(x => <Card data={x}></Card>)}   
             </div>
         );

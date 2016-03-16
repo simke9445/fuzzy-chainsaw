@@ -12,10 +12,9 @@ class Header extends React.Component {
                 <span className="emergency glyphicon glyphicon-exclamation-sign pull-left card-paragraph" 
                 aria-hidden="true"></span>
                 <div>
-                    <h3>
+                    <h4>
                         <a className="text-center" href="http://www.google.com">{this.props.title}</a>
-                    </h3>
-                    <span className="location-a"> Pre 12 minuta </span>
+                    </h4>  
                 </div>
             </div>
         );

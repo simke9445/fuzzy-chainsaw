@@ -2,34 +2,33 @@ extends layout
 
 block content
     .container
-
-         #basicModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='basicModal', aria-hidden='true', data-backdrop="false")
-          .modal-dialog
+        #basicModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='basicModal', aria-hidden='true', data-backdrop="false")
+            .modal-dialog
             .modal-content(style='background-color: #FFF;')
-              .modal-header
+                .modal-header
                 button.close(type='button', data-dismiss='modal', aria-hidden='true') &times;
                 h4#myModalLabel.modal-title Prijava za volontiranje u vanrednim situacijama
-              .modal-body
+                .modal-body
                 include volunteer-form
 
-        #blank
-            .row.card.col-md-6.col-md-offset-3
+    #blank
+        .card.col-md-6.col-md-offset-3
+            div
+                span.emergency.glyphicon.glyphicon-exclamation-sign.pull-left.card-paragraph(aria-hidden="true")
                 div
-                    span.emergency.glyphicon.glyphicon-exclamation-sign.pull-left.card-paragraph(aria-hidden="true")
-                    div
-                        h3
-                            a(class="text-center" href="http://www.google.com") hello
-                        span.location-a Pre 12 minuta
-                        a.btn.btn-lg.btn-success.pull-right(href='#', data-toggle='modal', data-target='#basicModal') Prijavi se! 
-                       
+                    h3
+                        a(class="text-center" href="http://www.google.com") hello
+                    span.location-a Pre 12 minuta
+                    a.btn.btn-lg.btn-success.pull-right(href='#', data-toggle='modal', data-target='#basicModal') Prijavi se! 
+                    
+            div
+                p.card-paragraph Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, molestias. Odio consectetur quia nihil, fugit. Asperiores minima ducimus, consectetur eveniet, deserunt officia perferendis harum commodi, culpa aut iusto sit, a.
+            .card-bottom.card-paragraph
+                .progress
+                    .progress-bar(role="progressbar" aria-valuenow="60", aria-valuemin="0", aria-valuemax="100", style="width: 60%;")
+                        span 12/20
+            .bottom-border.card-bottom
                 div
-                    p.card-paragraph Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, molestias. Odio consectetur quia nihil, fugit. Asperiores minima ducimus, consectetur eveniet, deserunt officia perferendis harum commodi, culpa aut iusto sit, a.
-                .card-bottom.card-paragraph
-                    .progress
-                        .progress-bar(role="progressbar" aria-valuenow="60", aria-valuemin="0", aria-valuemax="100", style="width: 60%;")
-                            span 12/20
-                .bottom-border.card-bottom
-                    div
-                        span.card-paragraph.pull-left
-                            a.location-a(href="zzzz") Nova Varos
-                        span.card-paragraph.pull-right ikonice
+                    span.card-paragraph.pull-left
+                        a.location-a(href="zzzz") Nova Varos
+                    span.card-paragraph.pull-right ikonice

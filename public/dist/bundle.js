@@ -84,10 +84,8 @@
 	            store = store.filter(function (x) {
 	                return x.id != row.old_val.id;
 	            });
-	            console.log("pozzasdasda");
 	        } else if (row.old_val === null) {
 	            store.push(row.new_val);
-	            console.log("pozz");
 	        } else {
 	            var objectIndex = store.findIndex(function (x) {
 	                return x.id == row.old_val.id;
@@ -19745,7 +19743,7 @@
 	        value: function render() {
 	            return _react2.default.createElement(
 	                'div',
-	                null,
+	                { className: 'container' },
 	                this.props.cards.map(function (x) {
 	                    return _react2.default.createElement(_card2.default, { data: x });
 	                })
@@ -19813,11 +19811,15 @@
 	            var data = this.props.data;
 	            return _react2.default.createElement(
 	                'div',
-	                { className: 'row card col-md-6 col-md-offset-3' },
-	                _react2.default.createElement(_header2.default, { title: data.title }),
-	                _react2.default.createElement(_description2.default, { content: data.note }),
-	                _react2.default.createElement(_progressBar2.default, { current: data.available_manpower, max: data.required_manpower }),
-	                _react2.default.createElement(_footer2.default, { location: data.location_name, skills: data.general_requirements })
+	                { className: 'col-md-6 col-md-offset-3' },
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'card' },
+	                    _react2.default.createElement(_header2.default, { title: data.title }),
+	                    _react2.default.createElement(_description2.default, { content: data.note }),
+	                    _react2.default.createElement(_progressBar2.default, { current: data.available_manpower, max: data.required_manpower }),
+	                    _react2.default.createElement(_footer2.default, { location: data.location_name, skills: data.general_requirements })
+	                )
 	            );
 	        }
 	    }]);
@@ -19872,18 +19874,13 @@
 	                    "div",
 	                    null,
 	                    _react2.default.createElement(
-	                        "h3",
+	                        "h4",
 	                        null,
 	                        _react2.default.createElement(
 	                            "a",
 	                            { className: "text-center", href: "http://www.google.com" },
 	                            this.props.title
 	                        )
-	                    ),
-	                    _react2.default.createElement(
-	                        "span",
-	                        { className: "location-a" },
-	                        " Pre 12 minuta "
 	                    )
 	                )
 	            );
@@ -19988,20 +19985,33 @@
 	            console.log(progressFullPercent);
 	            return _react2.default.createElement(
 	                "div",
-	                { className: "card-bottom card-paragraph" },
+	                { className: "row" },
 	                _react2.default.createElement(
 	                    "div",
-	                    { className: "progress" },
+	                    { className: "col-md-9 card-bottom card-paragraph text-center" },
 	                    _react2.default.createElement(
 	                        "div",
-	                        { className: "progress-bar", role: "progressbar",
-	                            "aria-valuenow": "60", "aria-valuemin": "0", "aria-valuemax": "100",
-	                            style: { width: progressFullPercent + '%' } },
+	                        { className: "progress" },
 	                        _react2.default.createElement(
-	                            "span",
-	                            null,
-	                            this.props.current + '/' + this.props.max
+	                            "div",
+	                            { className: "progress-bar", role: "progressbar",
+	                                "aria-valuenow": "60", "aria-valuemin": "0", "aria-valuemax": "100",
+	                                style: { width: progressFullPercent + '%' } },
+	                            _react2.default.createElement(
+	                                "span",
+	                                null,
+	                                this.props.current + '/' + this.props.max
+	                            )
 	                        )
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    "div",
+	                    null,
+	                    _react2.default.createElement(
+	                        "button",
+	                        { href: "#", className: "btn btn-xs btn-success text-center", "data-toggle": "modal", "data-target": "#basicModal" },
+	                        "Prijavi se!"
 	                    )
 	                )
 	            );

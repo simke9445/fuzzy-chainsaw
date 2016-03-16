@@ -17,10 +17,8 @@ socket.on('volunteer-list-init', function(data) {
         
         if (row.new_val === null) {
             store = store.filter((x) => x.id != row.old_val.id);    
-            console.log("pozzasdasda");
         } else if (row.old_val === null) {
             store.push(row.new_val);
-            console.log("pozz");
         } else {
             let objectIndex = store.findIndex((x) => x.id == row.old_val.id);
             store[objectIndex] = row.new_val;

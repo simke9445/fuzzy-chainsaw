@@ -14,10 +14,7 @@ a:hover {
     border-radius: 3px;
     border: 1px solid #E1E8ED;
     background: #FFF;
-}
-
-.card-bottom {
-    margin: 10px 0px 10px 0px;
+    margin: 20px 0px 0px 0px;
 }
 
 .card-paragraph {
@@ -28,7 +25,7 @@ a:hover {
 .bottom-border {
     border-top: 1px solid;
     border-color: #E1E8ED;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 
 .location-a {
