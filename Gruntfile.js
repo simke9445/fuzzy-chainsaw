@@ -14,7 +14,7 @@ module.exports = function (grunt) {
     pkg: grunt.file.readJSON('package.json'),
     develop: {
       server: {
-        file: 'app.js'
+        file: 'src/app.js'
       }
     },
     watch: {
@@ -24,8 +24,8 @@ module.exports = function (grunt) {
       },
       js: {
         files: [
-          'app.js',
-          'app/**/*.js',
+          'src/app.js',
+          'src/**/*.js',
           'config/*.js'
         ],
         tasks: ['develop', 'delayed-livereload']
@@ -41,8 +41,8 @@ module.exports = function (grunt) {
       },
       views: {
         files: [
-          'app/views/*.jade',
-          'app/views/**/*.jade'
+          'src/views/*.jade',
+          'src/views/**/*.jade'
         ],
         options: { livereload: reloadPort }
       }

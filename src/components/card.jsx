@@ -13,14 +13,14 @@ class Card extends React.Component {
     render() {
         let data = this.props.data;
         return (
-            <div className="col-md-6 col-md-offset-3">
-                <div className="card">
-                    <Header title={data.title}></Header>
+            <li className="volunteer-item">
+                <div>
+                    <Header title={data.title} urgency={data.urgency} location={data.location_name}></Header>
                     <Description content={data.note}></Description>
                     <ProgressBar current={data.available_manpower} max={data.required_manpower}></ProgressBar>
-                    <Footer location={data.location_name} skills={data.general_requirements}></Footer>
+                    <Footer skills={data.general_requirements}></Footer>
                 </div>
-            </div>
+            </li>
         );
     }
 }

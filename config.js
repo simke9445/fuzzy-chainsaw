@@ -6,6 +6,6 @@ module.exports = {
         db: 'fuzzy_chainsaw',
     },
     express: {
-        port: 8080,
+        port: 3000,
     }
 };

@@ -8,8 +8,8 @@ class Description extends React.Component {
     
     render() {
         return (
-            <div>
-                <p className="card-paragraph">{this.props.content}</p>
+            <div className="row">
+                <p className="lead">{this.props.content}</p>
             </div>
         );
     }

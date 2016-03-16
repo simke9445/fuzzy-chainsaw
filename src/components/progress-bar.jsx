@@ -8,7 +8,7 @@ class ProgressBar extends React.Component {
     
     render() {
         let progressFullPercent = 100*(this.props.current/this.props.max);
-        console.log(progressFullPercent);
+        
         return (
             <div className="row">
                 <div className="col-md-9 card-bottom card-paragraph text-center">

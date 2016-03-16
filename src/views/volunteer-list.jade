@@ -1,0 +1,17 @@
+extends layout
+
+block content
+    .container
+        .col-lg-offset-2.col-lg-8
+            #basicModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='basicModal', aria-hidden='true', data-backdrop="false")
+                .modal-dialog
+                .modal-content(style='background-color: #FFF;')
+                    .modal-header
+                    button.close(type='button', data-dismiss='modal', aria-hidden='true') &times;
+                    h4#myModalLabel.modal-title Prijava za volontiranje u vanrednim situacijama
+                    .modal-body
+                    include volunteer-form
+        .col-lg-offset-2.col-lg-8 
+            #cardList !{mainList}
+    script(type='text/javascript').
+      window._INITIAL_STATE = !{state};

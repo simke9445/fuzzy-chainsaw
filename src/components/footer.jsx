@@ -8,10 +8,9 @@ class Footer extends React.Component {
     
     render() {
         return (
-            <div className="bottom-border card-bottom">
-                <div>
+            <div className="row">
+                <div className="bottom-border card-bottom">
                     <span className="card-paragraph pull-left"></span>
-                        <a href="zzzz" className="location-a">{this.props.location}</a>
                     <span className="card-paragraph pull-right">{this.props.skills.join(', ')}</span> 
                 </div>
             </div>
