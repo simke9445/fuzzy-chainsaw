@@ -21,7 +21,7 @@ var io = require('socket.io')(server);
 var db = require('./db');
 
 app.locals.config = config;
-var dbHandle = r.db(config.rethinkdb.db);
+var dbHandle = r.db(config.rethinkdb[process.env.NODE_ENV].db);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -37,7 +37,7 @@ app.use(express.static(path.join(__dirname, '/../public')));
 
 app.use(db.createConnection);
 
-r.connect(config.rethinkdb, function(err, connection) {
+r.connect(config.rethinkdb[process.env.NODE_ENV], function(err, connection) {
     assert(err == null, err);
 
     require('./realtime/volunteer-store.js')(dbHandle, connection).then(

@@ -11,7 +11,7 @@ class ProgressBar extends React.Component {
         
         return (
             <div className="row">
-                <div className="col-md-2">
+                <div className="col-md-1">
                     <div id="progressString">
                         <span>{this.props.current + '/' + this.props.max}</span>
                     </div>

@@ -3,7 +3,7 @@ var config = require('../config');
 
 module.exports = {
     createConnection: function(req, res, next) {
-        r.connect(config.rethinkdb).then(function(conn) {
+        r.connect(config.rethinkdb[process.env.NODE_ENV]).then(function(conn) {
             req.rdbConn = conn;
             next();
         });
