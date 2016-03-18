@@ -3,13 +3,13 @@ var router = express.Router();
 var io = require('socket.io');
 var ReactDOMServer = require('react-dom/server');
 var React = require('react');
-var CardList = require('../../dist/component.bundle.js').CardList;
+var VolunteerList = require('../../dist/component.bundle.js').VolunteerList;
 
 var localStore = null;
     
 /* GET volunteer listing. */
 router.get('/', function(req, res, next) {     
-    var cardList = ReactDOMServer.renderToString(CardList({
+    var cardList = ReactDOMServer.renderToString(VolunteerList({
         cards: localStore.getState().entries
     }));
    
@@ -22,14 +22,11 @@ router.get('/', function(req, res, next) {
 router.post('/signup', function(req, res, next) {
     console.log(req.body);
 
-    var cardList = ReactDOMServer.renderToString(CardList({
+    var cardList = ReactDOMServer.renderToString(VolunteerList({
         cards: localStore.getState().entries
     }));
    
-    res.render('volunteer-list', {
-        mainList: cardList, 
-        state: JSON.stringify(localStore.getState().entries)
-    }); 
+    res.redirect('/');
 });
 
 router.post('/profile', function(req, res, next) {

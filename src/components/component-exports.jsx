@@ -1,6 +1,6 @@
 import React from 'react';
-import _CardList from './card-list';
+import _VolunteerList from './volunteer-list/card-list';
 
-var CardList = React.createFactory(_CardList);
+var VolunteerList = React.createFactory(_VolunteerList);
 
-export { CardList };
+export { VolunteerList };
