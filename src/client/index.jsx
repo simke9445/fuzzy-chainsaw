@@ -9,12 +9,16 @@ var socket = io();
 
 var dataStore = createStore(entries, window._INITIAL_STATE);
 
-dataStore.subscribe(function() {
+// subscribe and render 
+var renderCardList = function() {
     ReactDOM.render(
         VolunteerList({ cards: dataStore.getState()}),
         document.getElementById('cardList')
     );
-});
+}
+
+renderCardList();
+dataStore.subscribe(renderCardList);
 
 socket.on('volunteer-list-update', function(action) {
     dataStore.dispatch(action);
