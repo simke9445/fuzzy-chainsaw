@@ -75,6 +75,15 @@ router.post('/signup', function(req, res, next) {
     }
 });
 
+router.get('/signups/:id', function(req, res, next) {
+    r.table('event')
+        .get(req.params.id)
+        .getField('signups')
+        .run(db, function(err, data) {
+           res.json(data); 
+        });
+});
+
 router.post('/profile', function(req, res, next) {
     console.log(req.body);
 
