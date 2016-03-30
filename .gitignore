@@ -36,3 +36,4 @@ jspm_packages
 public/dist
 dist/
 rethinkdb_data/
+config.js

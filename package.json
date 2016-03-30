@@ -7,7 +7,7 @@
     "start-default": "webpack && node src/component.bundler.js && grunt",
     "start-development": "NODE_ENV=\"development\" npm run start-default",
     "start-production": "NODE_ENV=\"production\" npm run start-default",
-    "start-win": "set NODE_ENV=\"development\" && npm run start-default"
+    "start-win": "set NODE_ENV=development&& npm run start-default"
   },
   "dependencies": {
     "babel-plugin-transform-runtime": "^6.6.0",
