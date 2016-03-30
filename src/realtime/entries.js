@@ -12,7 +12,7 @@ function AddNewEntry(state, action) {
 function UpdateEntry(state, action) {
     // todo
     var updateIndex = state.findIndex(function(x) {
-        return x.id != action.entry.id;
+        return x.id == action.entry.id;
     });
 
     if (updateIndex !== -1) {
