@@ -17,7 +17,7 @@ class Card extends React.Component {
                 <div>
                     <Header title={data.title} urgency={data.urgency} location={data.location_name}></Header>
                     <Description content={data.note}></Description>
-                    <ProgressBar current={data.available_manpower} max={data.required_manpower}></ProgressBar>
+                    <ProgressBar current={data.available_manpower} max={data.required_manpower} id={data.id}></ProgressBar>
                     <Footer skills={data.general_requirements}></Footer>
                 </div>
             </li>

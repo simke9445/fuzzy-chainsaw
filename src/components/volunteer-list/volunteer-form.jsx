@@ -1,0 +1,130 @@
+import React from 'react'
+
+class VolunteerForm extends React.Component {
+ 
+    render() {
+      return (
+        form.form-group(role='form', action='/signup', method='POST')
+  .row
+    .col-lg-5.col-lg-push-1
+      .row
+        p Ime:
+        textarea(style='width: 50%; height: 2em; resize: none;', name='first_name')
+      .row
+        p Prezime:
+        textarea(style='width: 50%; height: 2em;  resize: none;', name='last_name')
+      .row
+        p Telefon:
+        textarea(style='width: 50%; height: 2em; resize: none;', name='phone')
+      .row
+        p JMBG:
+        textarea(style='width: 50%; height: 2em; resize: none;', name='JMBG')
+    .col-lg-5
+      h4 Sposobnosti
+      .row
+        .col-lg-6
+          .checkbox.disabled
+            label
+              input(type='checkbox', value='skill-muscle')
+              | Fizicka snaga
+          .checkbox.disabled
+            label
+              input(type='checkbox', value='skill-swimmer')
+              | Plivac
+          .checkbox.disabled
+            label
+              input(type='checkbox', value='skill-caretaker')
+              | Staratelj
+        .col-lg-6
+          .checkbox.disabled
+            label
+              input(type='checkbox', value='skill-driver')
+              | Vozac
+          .checkbox.disabled
+            label
+              input(type='checkbox', value='skill-agile')
+              | Agilan
+    .col-lg-1
+  .row
+    .col-lg-5.col-lg-push-1
+        h4 Onemogucenosti
+        .row
+          .col-lg-6
+            .checkbox.disabled
+              label
+                input(type='checkbox', name='handicap-disabled')
+                | Osoba sa invaliditetom
+            .checkbox.disabled
+              label
+                input(type='checkbox', name='handicap-chronic')
+                | Hronicni bolesnik
+            .checkbox.disabled
+              label
+                input(type='checkbox', name='handicap-pregnant')
+                | Drugo stanje
+
+        .row
+          h4 Krvna Grupa
+          .col-lg-5
+            .radio
+              label
+                input(type='radio', name='blood_type', value='A')
+                | A
+            .radio
+              label
+                input(type='radio', name='blood_type', value='B')
+                | B
+            .radio
+              label
+                input(type='radio', name='blood_type', value='AB')
+                | AB
+            .radio
+              label
+                input(type='radio', name='blood_type', value='O')
+                | O
+          .col-lg-6
+            h4 Pol
+            .radio
+              label
+                input(type='radio', name='gender', value='M')
+                | Muski
+            .radio
+              label
+                input(type='radio', name='gender', value='F')
+                | Zenski
+
+    .col-lg-5
+      h4 Jezici
+      .row
+        .col-lg-6
+          .checkbox.disabled
+            label
+              input(type='checkbox', value='language-serbian')
+              | Srpski
+          .checkbox.disabled
+            label
+              input(type='checkbox', value='language-english')
+              | Engleski
+          .checkbox.disabled
+            label
+              input(type='checkbox', value='language-french')
+              | Francuski
+        .col-lg-6
+          .checkbox.disabled
+            label
+              input(type='checkbox', value='language-arabic')
+              | Arapski
+          .checkbox.disabled
+            label
+              input(type='checkbox', value='language-german')
+              | Nemacki
+          .checkbox.disabled
+            label
+              input(type='checkbox', value='language-italian')
+              | Italijanski
+  .row
+    button.btn.btn-default.pull-right(type='button', data-dismiss='modal') Otkazi
+    input.btn.btn-default.pull-right(type='submit', name='submit' value='Posalji Prijavu') 
+      );
+    }    
+}

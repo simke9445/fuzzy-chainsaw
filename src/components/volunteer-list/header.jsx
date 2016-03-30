@@ -2,7 +2,6 @@ import React from 'react';
 import classNames from 'classnames';
 
 class Header extends React.Component {
-    
     constructor(props) {
         super(props)
     }

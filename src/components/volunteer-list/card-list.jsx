@@ -10,7 +10,7 @@ class CardList extends React.Component {
     render() {
         return (
             <ul> 
-                {this.props.cards.map(x => <Card data={x}></Card>)}   
+                {this.props.cards.map(x => <Card key={x.id} data={x}></Card>)}   
             </ul>
         );
     }
