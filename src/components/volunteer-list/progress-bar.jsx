@@ -6,8 +6,16 @@ class ProgressBar extends React.Component {
         super(props)
     }
     
+    onClick(event) {
+        console.log(event);
+        var hidden = document.getElementById('hidden_id');    
+        hidden.value = this.props.id;
+    }
+    
     render() {
         let progressFullPercent = 100*(this.props.current/this.props.max);
+        // we will use this.props in function, we need to bind it!
+        let onClickBound = this.onClick.bind(this);
         
         return (
             <div className="row">
@@ -25,7 +33,9 @@ class ProgressBar extends React.Component {
                     </div>
                 </div>
                 <div className="col-md-2">
-                    <button href="#" className="btn btn-xs btn-success text-center" data-toggle='modal' data-target='#basicModal'>Prijavi se!</button>
+                    <button href="#" className="btn btn-xs btn-success text-center" 
+                        data-toggle='modal' data-target='#basicModal'
+                        onClick={onClickBound}>Prijavi se!</button>
                 </div>
             </div>
         );
