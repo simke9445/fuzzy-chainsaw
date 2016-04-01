@@ -5,8 +5,9 @@ var ReactDOMServer = require('react-dom/server');
 var React = require('react');
 var VolunteerList = require('../../dist/component.bundle.js').VolunteerList;
 var r = require('rethinkdb');
+
 var localStore = null;
-var db = null;
+var dbConnection = null;
 
 /* GET volunteer listing. */
 router.get('/', function(req, res, next) {     
@@ -47,31 +48,48 @@ var signupValidationSchema = {
     }
 };
 
+// Twilio Credentials 
+var accountSid = 'AC45a26d291a9c58879b8443cd4199e888'; 
+var authToken = '1e2fd6e562c797c87defa5864cd5bc4d'; 
+ 
+//require the Twilio module and create a REST client 
+var client = require('twilio')(accountSid, authToken); 
+
 router.post('/signup', function(req, res, next) {
-    console.log(req.body);
     req.checkBody(signupValidationSchema);
     
     var errors = req.validationErrors();
     if (errors === false) {
         var eventId = req.body.event_id;
         delete req.body.event_id;
-        console.log(req.body);
+
         r.table('event')
             .get(eventId)
             .update({
                 signups: r.row('signups').append(req.body),
                 available_manpower: r.row('signups').count()
             })
-            .run(db);
+            .run(dbConnection, function(err, cursor) {
+                if (err) {
+                    return;
+                } else { 
+                    client.messages.create({ 
+                        to: req.body.phone, 
+                        from: "+12057329313", 
+                        body: "Dragi " + req.body.first_name + " prijavljeni ste za volontiranje.",   
+                    }, function(err, message) { 
+                        console.log(err); 
+                    });
+                    
+                    console.log(r.row('title'));
+                }
+            });
             
         res.redirect('/');
     } else {
-        res
-            .status(400)
-            .send(errors.map(function(err) {
-                return err.msg
-            })
-            .join(','));
+        res.json(errors.map(function(err) {
+            return err.msg
+        }));
     }
 });
 
@@ -79,7 +97,7 @@ router.get('/signups/:id', function(req, res, next) {
     r.table('event')
         .get(req.params.id)
         .getField('signups')
-        .run(db, function(err, data) {
+        .run(dbConnection, function(err, data) {
            res.json(data); 
         });
 });
@@ -90,9 +108,23 @@ router.post('/profile', function(req, res, next) {
     res.render('volunteer-detail');
 });
 
+router.get('/list', function(req, res) {
+    var data = localStore.getState().entries;
+    res.json(data);    
+});
+
+router.get('/newevent', function(req, res) {
+    res.render('coordinator-form'); 
+});
+
+router.post('/newevent', function(req, res) {
+    console.log(req.body);
+    res.redirect('/'); 
+});
+
 module.exports = function(dataStore, databaseRef) {
     localStore = dataStore;
-    db = databaseRef;
+    dbConnection = databaseRef;
     
     return router;
 }
