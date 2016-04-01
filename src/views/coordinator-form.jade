@@ -3,45 +3,48 @@ extends layout
 block content
     .content
         .col-lg-offset-2.col-lg-8
-            form.form-group.card(role='form', action='/newevent', method='POST')
+            form.card(role='form', action='/newevent', method='POST', style='padding: 20px 20px;')
                 .row
-                    .col-lg-5.col-lg-push-1
-                        .row
-                            p Naziv:
-                            input(name='name' type='text' style='width: 50%; height: 2em; resize: none;')
-                        .row
-                            p Opis:
-                            input(name='description' type='text' style='width: 50%; height: 2em;  resize: none;')
-                    .col-lg-5
-                        h4 Zahtevane sposobnosti
-                        .row
+                    .col-lg-8
+                        h4 Informacije o volonterskoj akciji
+                        .form-group
+                            label(for='name') Naziv:
+                            input.form-control(name='name' type='text')
+                        .form-group
+                            label(for='description') Opis:
+                            textarea.form-control(name='description', rows='3', placeholder='Dodatne informacije...')
+                        .form-group
+                            label(for='location') Lokacija:
+                            input.form-control(name='location' type='text')
+                .row
+                    .col-lg-6
+                        h4 Zahtevane sposobnosti:
+                        .form-group
                             .col-lg-6
                                 .checkbox
                                     label
-                                        input(type='checkbox', value='')
+                                        input(name='power' type='checkbox', value='')
                                         | Fizicka snaga
                                 .checkbox
                                     label
-                                        input(type='checkbox', value='')
+                                        input(name='swim' type='checkbox', value='')
                                         | Plivac
                                 .checkbox
                                     label
-                                        input(type='checkbox', value='')
+                                        input(name='nanny' type='checkbox', value='')
                                         | Staratelj
                             .col-lg-6
                                 .checkbox
                                     label
-                                        input(type='checkbox', value='')
+                                        input(name='driver' type='checkbox', value='')
                                         | Vozac
                                 .checkbox
                                     label
-                                        input(type='checkbox', value='')
+                                        input(name='agile' type='checkbox', value='')
                                         | Agilan
-                    .col-lg-1
-                .row
-                    .col-lg-5
-                        h4 Jezici
-                        .row
+                    .col-lg-6
+                        h4 Jezici:
+                        .form-group
                             .col-lg-6
                                 .checkbox
                                     label
@@ -68,11 +71,15 @@ block content
                                     label
                                         input(type='checkbox', value='')
                                         | Italijanski
-                    .col-lg-1
-                .row
-                    input.slider(type='number', name='urgency', data-provide='slider', data-slider-ticks='[1, 2, 3, 4]', data-slider-ticks-labels='["arising", "rekindling", "urgent", "critical"]', data-slider-min='1', data-slider-max='4', data-slider-step='1', data-slider-value='3', data-slider-tooltip='hide')
-                .row
-                    p Potrebno ljudi:
-                    textarea(style='width: 50%; height: 2em;  resize: none;')
+                .row(style="margin-top: 20px")
+                    .col-lg-6
+                        .form-group
+                            .col-lg-6
+                                label(for='urgency') Hitnost
+                                input.slider.form-control(type='number', name='urgency', data-provide='slider', data-slider-ticks='[0, 1, 2, 3]', data-slider-ticks-labels='["Niska", "Srednja", "Visoka", "Kriticna"]', data-slider-min='1', data-slider-max='4', data-slider-step='1', data-slider-value='3',  data-slider-tooltip='hide')
+                    .col-lg-61
+                        .form-group.pull-left
+                            label(for='required_manpower') Potrebno ljudi:
+                            input.form-control(name='required_manpower', type='number')
                 .row
                     input.btn.btn-default.pull-right(type='submit', name='submit' value='Postavi') 

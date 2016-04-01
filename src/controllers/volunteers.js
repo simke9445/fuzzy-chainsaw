@@ -117,9 +117,32 @@ router.get('/newevent', function(req, res) {
     res.render('coordinator-form'); 
 });
 
+var getArray = function(body) {
+    var arr = [];
+    if (body.power !== undefined) arr.push('Fizicka snaga');
+    if (body.swim !== undefined) arr.push('Plivac');
+    if (body.nanny !== undefined) arr.push('Staratelj');
+    if (body.driver !== undefined) arr.push('Vozac');
+    if (body.agile !== undefined) arr.push('Agilan');
+    return arr;
+}
+
 router.post('/newevent', function(req, res) {
     console.log(req.body);
-    res.redirect('/'); 
+   
+    var newEvent = {
+        title: req.body.name,
+        note: req.body.description,
+        location_name: req.body.location,
+        urgency: req.body.urgency,
+        required_manpower: req.body.required_manpower,
+        available_manpower: 0,
+        signups: [],
+        general_requirements: getArray(req.body)
+    }
+    r.table('event').insert(newEvent).run(dbConnection, function() {
+        res.redirect('/'); 
+    });
 });
 
 module.exports = function(dataStore, databaseRef) {
